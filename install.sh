@@ -130,10 +130,7 @@ install() {
         say "$(printf "${GREEN}✅ Alias '$ALIAS_NAME' is now available${NC}")"
         echo ""
         say "$(printf "${YELLOW}Quick Start:${NC}")"
-        printf "  ${CYAN}dne --all${NC}                       # Extract all running containers\n"
-        printf "  ${CYAN}dne mysql redis${NC}                # Extract specific containers\n"
-        printf "  ${CYAN}dne --backup --all${NC}             # Create timestamped backup\n"
-        printf "  ${CYAN}dne --help${NC}                     # Show help\n"
+        printf "  ${CYAN}dne${NC}                       # Extract networks\n"
         echo ""
         say "$(printf "${BLUE}💡 You can use either 'dne' or 'docker-network-extractor'${NC}")"
     else
@@ -147,23 +144,6 @@ main() {
         --uninstall|-u)
             check_root "$@"
             uninstall
-            ;;
-        --help|-h)
-            echo "docker-network-extractor installer v${VERSION}"
-            echo ""
-            echo "Usage:"
-            echo "  $0              Install docker-network-extractor"
-            echo "  $0 --uninstall  Uninstall docker-network-extractor"
-            echo "  $0 --help       Show this help"
-            echo ""
-            echo "Description:"
-            echo "  Extracts environment variables from Docker containers to .env files"
-            echo ""
-            echo "Quick install:"
-            echo "  curl -LsSf https://raw.githubusercontent.com/SangHakLee/docker-network-extractor/main/install.sh | sh"
-            echo ""
-            echo "Uninstall:"
-            echo "  curl -LsSf https://raw.githubusercontent.com/SangHakLee/docker-network-extractor/main/install.sh | sh -s -- --uninstall"
             ;;
         *)
             check_root "$@"
